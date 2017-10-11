@@ -1,0 +1,15 @@
+{
+  "name": "serverswagger",
+  "version": "1.0.0",
+  "description": "simple web server for swagger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "swgger",
+    "ui"
+  ],
+  "author": "FaberCata",
+  "license": "ISC"
+}
