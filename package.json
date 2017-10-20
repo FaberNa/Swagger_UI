@@ -6,10 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaberNa/Swagger_UI.git"
+  },
   "keywords": [
     "swgger",
     "ui"
   ],
   "author": "FaberCata",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "https": "^1.0.0"
+  }
 }
