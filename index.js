@@ -28,7 +28,7 @@ app.get("/get/:fileName",function(req,res){
             'Content-Type': 'text/plain',
         }
     };
-    //console.dir(options)
+    console.dir(options)
     // call my gitlab server to retrieve element
    getJSON(options, function(statusCode, result) {
         // I could work with the result html/json here.  I could also just return it
@@ -56,7 +56,15 @@ getJSON = function(options, onResult)
         });
 
         res.on('end', function() {
-            var obj = JSON.parse(output);
+            //var obj = JSON.parse(output);
+            //console.dir(output);
+            if(output) {
+                try {
+                  var   obj = JSON.parse(output);
+                } catch(e) {
+                    obj='error on parsing json'
+                }
+            }
             onResult(res.statusCode, obj);
         });
     });
@@ -69,6 +77,6 @@ getJSON = function(options, onResult)
 };
 app.set('port', process.env.PORT || 3002);
 
-listener = app.listen(app.get('port'),"localhost",function(){
+listener = app.listen(app.get('port'),function(){
  console.log('Server running '+ listener.address().address+' on port '+listener.address().port)
 })
