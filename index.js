@@ -6,6 +6,15 @@ var https = require("https");
 app.use(express.static('dist'));
 app.use(express.static('repo'));
 
+app.use(function(req, res, next){
+    //res.setHeader('Access-Control-Allow-Origin', 'http://dev-mobile-services-1.pgol.net:3002');
+    //res.header('Access-Control-Allow-Origin', '*');
+    //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, PATCH, OPTIONS');
+    //res.setHeader('Access-Control-Allow-Headers', 'Content-Type, api_key, Authorization');
+    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+
 app.get("/repo",function(req,res){
 	
 	console.log('servo questo get');
@@ -76,7 +85,8 @@ getJSON = function(options, onResult)
     req.end();
 };
 app.set('port', process.env.PORT || 3002);
+app.set('host',process.env.HOST || 'localhost');
 
-listener = app.listen(app.get('port'),function(){
+listener = app.listen(app.get('port'),app.get('host'),function(){
  console.log('Server running '+ listener.address().address+' on port '+listener.address().port)
 })
