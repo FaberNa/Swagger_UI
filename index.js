@@ -87,6 +87,12 @@ getJSON = function(options, onResult)
 app.set('port', process.env.PORT || 3002);
 app.set('host',process.env.HOST || 'localhost');
 
+app.get('/', function(req, res) {
+    res.redirect("/index_end.html");
+});
+
+
 listener = app.listen(app.get('port'),app.get('host'),function(){
  console.log('Server running '+ listener.address().address+' on port '+listener.address().port)
+
 })
