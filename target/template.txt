@@ -1,0 +1,5 @@
+open sftp://idb_app:idBappU53rb0@deploy.pgol.net/ -hostkey=* -rawsettings ProxyMethod=2 ProxyHost="localhost" ProxyPort=48000
+lcd .\target
+cd /var/www/deploy/idb/Swagger
+put -nopermissions -nopreservetime  -delete Swagger_UI.tar.gz
+exit
